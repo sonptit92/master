@@ -1,3 +1,10 @@
-##Description
+## Description
 
-My practice wordpress theme.
+Make development of Wordpress is easier
+
+## Features
+
+* Webpack
+* Tachyons
+
+## Guidance
