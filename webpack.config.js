@@ -3,22 +3,13 @@ const path = require('path');
 module.exports = {
   entry: './assets/js/app.js',
   output: {
-    filename: 'app.css',
-    path: path.resolve(__dirname, 'public/css')
+    filename: 'app.js',
+    path: path.resolve(__dirname, 'public/js')
   },
   module: {
     rules: [{
-      test: /\.scss$/,
-      use: [{
-          loader: "style-loader"
-      }, {
-          loader: "css-loader"
-      }, {
-          loader: "sass-loader",
-          options: {
-              includePaths: ["absolute/path/a", "absolute/path/b"]
-          }
-      }]
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
   }]
   }
 };
