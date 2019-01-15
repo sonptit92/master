@@ -1,6 +1,6 @@
 <?php
-add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_scripts' );
-function my_theme_enqueue_scripts() {
-    wp_enqueue_script( 'bundle', get_stylesheet_directory_uri() . '/static/js/app.js', array('jquery'), 1, false );
+add_action( 'wp_enqueue_scripts', 'load_scrip_master' );
+function load_script_master() {
+    wp_enqueue_script( 'public', get_stylesheet_directory_uri() . '/static/js/public.min.js', array('jquery'), 1, false );
 
 }

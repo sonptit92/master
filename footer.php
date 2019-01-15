@@ -9,12 +9,12 @@
  * @since Twenty Sixteen 1.0
  */
 ?>
-    </div><!-- #content -->
+   
 
     <footer class="site-footer">
     </footer>
-    <script src="./static/js/app.js"></script>
-</div><!-- #page -->
+
+
 
 <?php wp_footer(); ?>
 </body>
