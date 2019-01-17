@@ -4,8 +4,10 @@
 
 ## Features
 
-* Webpack
-* Tachyons
+- Webpack
+    - autoPrefixer
+    - cssExtract
+- Tachyons
 
 ## Guidance
 

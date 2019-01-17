@@ -1,8 +1,6 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractSass = new ExtractTextPlugin({
-    filename: '/static/css/[name].min.css',
-});
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
     entry: {
         public: './assets/js/app.js'
@@ -15,11 +13,11 @@ module.exports = {
         rules: [
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
+                use: ['style-loader', 'css-loader', 'sass-loader']     
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader']
+                use: ['style-loader', 'css-loader']
             },
             {
                 test: /\.(png|woff|woff2|eot|ttf|svg)$/,
@@ -32,7 +30,4 @@ module.exports = {
             }
         ]
     },
-    plugin: [
-        require('autoprefixer')
-    ]
 };

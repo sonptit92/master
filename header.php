@@ -18,6 +18,6 @@
 </head>
 
 <body>
-<!--<script src="./static/js/public.min.js"></script>-->
+<script src="./static/js/public.min.js"></script>
 
 
