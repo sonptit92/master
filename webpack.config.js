@@ -1,5 +1,5 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = {
     entry: {
@@ -20,8 +20,12 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                test: /\.(woff|woff2|eot|ttf|svg)$/,
                 loader: 'url-loader?limit=100000'
+            },
+            {
+                test: /\.png$/, 
+                use: [ 'file-loader?name=i/[hash].[ext]']
             },
             {
                 test: /\.js$/,
@@ -30,4 +34,22 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        modules: ["node_modules", "spritesmith-generated"]
+    },
+    plugins: [
+        new SpritesmithPlugin({
+            src: {
+                cwd: path.resolve(__dirname, 'assets/icon'),
+                glob: '*.png'
+            },
+            target: {
+                image: path.resolve(__dirname, 'sprites/sprite.png'),
+                css: path.resolve(__dirname, 'sprites/sprite.scss')
+            },
+            apiOptions: {
+                cssImageRef: "~sprite.png"
+            }
+        })
+    ]
 };

@@ -9,7 +9,8 @@
  * @since Twenty Sixteen 1.0
  */
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -18,6 +19,6 @@
 </head>
 
 <body>
-<script src="./static/js/public.min.js"></script>
+
 
 
