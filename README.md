@@ -8,6 +8,7 @@
     - autoPrefixer
     - cssExtract
 - Tachyons
+- Travis CI
 
 ## Guidance
 
