@@ -1,5 +1,7 @@
 const path = require('path');
-var SpritesmithPlugin = require('webpack-spritesmith');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -7,17 +9,25 @@ module.exports = {
     },
     output: {
         filename: '[name].min.js',
-        path: path.resolve(__dirname, 'static/js')
+        path: path.resolve(__dirname, 'static')
     },
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].min.css',
+        }),
+    ],
     module: {
         rules: [
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']     
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
             {
                 test: /\.(woff|woff2|eot|ttf|svg)$/,
@@ -34,22 +44,4 @@ module.exports = {
             }
         ]
     },
-    resolve: {
-        modules: ["node_modules", "spritesmith-generated"]
-    },
-    plugins: [
-        new SpritesmithPlugin({
-            src: {
-                cwd: path.resolve(__dirname, 'assets/icon'),
-                glob: '*.png'
-            },
-            target: {
-                image: path.resolve(__dirname, 'sprites/sprite.png'),
-                css: path.resolve(__dirname, 'sprites/sprite.scss')
-            },
-            apiOptions: {
-                cssImageRef: "~sprite.png"
-            }
-        })
-    ]
 };

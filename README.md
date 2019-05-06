@@ -5,9 +5,13 @@
 ## Features
 
 - Webpack
-    - autoPrefixer
-    - cssExtract
+    - auto-prefixer
+    - mini-css-extract-plugin
+    - optimize-css-assets-webpack-plugin
+    - terser-webpack-plugin
 - Tachyons
 
 ## Guidance
-
+* Please run command `npm run dev` for develop enviroment 
+* Please run command `npm run build`
+ for production also
