@@ -10,6 +10,7 @@
     - optimize-css-assets-webpack-plugin
     - terser-webpack-plugin
 - Tachyons
+- Google AMP
 
 ## Guidance
 * Please run command `npm run dev` for develop enviroment 
